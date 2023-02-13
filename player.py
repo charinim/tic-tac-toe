@@ -2,21 +2,13 @@ from random import choice
 
 class Player:
       def __init__(self, name, sign):
-            self.name = name  # player's name
-            self.sign = sign  # player's sign O or X
+            self.name = name  
+            self.sign = sign 
       def get_sign(self):
-            # return an instance sign
             return self.sign
       def get_name(self):
-            # return an instance name
             return self.name
       def choose(self, board):
-            # prompt the user to choose a cell
-            # if the user enters a valid string and the cell on the board is empty, update the board
-            # otherwise print a message that the input is wrong and rewrite the prompt
-            # use the methods board.isempty(cell), and board.set(cell, sign)
-        
-            
             while True:
                 cell = input(f'{self.name}, {self.sign}: Enter a cell [A-C][1-3]: ').upper()
                 if board.isempty(cell):
@@ -74,20 +66,14 @@ class MiniMax(AI):
         board.board[board.set(cell, self.sign)] = self.sign
     
     def minimax(self, board, self_player, start):
-        # check the base conditions
         if board.isdone():
-            # self is a winner
             if board.get_winner() == self.sign:
                 return 1
-            # is a tie
             elif board.get_winner() == self.other_sign:
                 return -1
-            # self is a looser (opponent is a winner)
             else:
                 return 0
             
-        
-        # make a move (choose a cell) recursively
         else:
             min = 3000
             max = -3000
@@ -120,4 +106,3 @@ class MiniMax(AI):
                 return max
             else:
                 return min
-            # use the pseudocode given to you above to implement the missing code
