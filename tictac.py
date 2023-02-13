@@ -1,13 +1,6 @@
-# author: Larissa Munishkina
-# date: Feb 6, 2023
-# file: tictac.py a Python program that implements a tic-tac-toe game
-# input: user responses (strings)
-# output: interactive text messages and a tic-tac-toe board
-
 from board import Board
 from player import Player, AI, MiniMax
 
-# main program
 print("Welcome to TIC-TAC-TOE Game!")
 while True:
     board = Board()
